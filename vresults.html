@@ -5,30 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>University Exam Results Portal</title>
   <style>
-    body { font-family: Arial,sans-serif; background:#f8f9fa; margin:0; padding:0; display:flex; justify-content:center; align-items:center; min-height:100vh; }
-    .container { background:#fff; padding:30px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1); width:100%; max-width:600px; text-align:center; }
-    .logo img { width:100px; margin-bottom:15px; }
-    h1 { font-size:20px; margin-bottom:5px; color:#2c3e50; }
-    h2 { font-size:16px; margin-bottom:20px; color:#34495e; }
-    input { width:70%; padding:10px; font-size:14px; border:1px solid #ccc; border-radius:4px; margin-bottom:10px; }
-    button { padding:10px 20px; background:#0066cc; color:#fff; border:none; border-radius:4px; cursor:pointer; }
-    button:hover { background:#004999; }
-    table { width:100%; margin-top:15px; border-collapse:collapse; }
-    table, th, td { border:1px solid #ccc; }
-    th, td { padding:8px; text-align:center; }
-    .pass { color:green; font-weight:bold; }
-    .fail { color:red; font-weight:bold; }
-    #result { margin-top:20px; text-align:left; }
+    body {
+      font-family: Arial, sans-serif;
+      background: url("https://centsai.com/wp-content/uploads/2017/06/iStock-520614864.jpg") no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    marquee {
+      width: 100%;
+      background: #ff0000;
+      color: #fff;
+      font-weight: bold;
+      padding: 8px 0;
+      font-size: 16px;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .logo-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .logo-row img {
+      height: 90px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    h1 {
+      font-size: 20px;
+      margin-bottom: 5px;
+      color: #2c3e50;
+    }
+    h2 {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #34495e;
+    }
+    input {
+      width: 70%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #0066cc;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #004999;
+    }
+    table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 8px;
+      text-align: center;
+    }
+    .pass {
+      color: green;
+      font-weight: bold;
+    }
+    .fail {
+      color: red;
+      font-weight: bold;
+    }
+    #result {
+      margin-top: 20px;
+      text-align: left;
+    }
   </style>
 </head>
 <body>
+  <!-- Marquee Announcement -->
+  <marquee behavior="scroll" direction="left">
+    🚨 Results will now be released on 6th October 2025 (06/10/2025) 🚨
+  </marquee>
+
   <div class="container">
-    <div class="logo">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE18t6I2ujlT5wTootV9juGSnxRXXqUdpo-A&s" alt="College Logo">
+    <!-- Only College Logo -->
+    <div class="logo-row">
+      <img src="https://images.shiksha.com/mediadata/images/1711024602phpuxRYMu.jpeg" alt="College Logo">
     </div>
+
     <div class="content">
-      <h1>DAVID MEMORIAL JUNIOR COLLEGE</h1>
-      <h2>Check Your Individual Result</h2>
+      
+      <h1 style="color: red;">DAVID MEMORIAL INSTITUTIONS</h1>
+       <h2> JUNIOR COLLEGE</h2>
+      <h5>Check Your Individual Result</h5>
       <input type="text" id="rollNo" placeholder="Enter Roll No">
       <button onclick="checkResult()">View Result</button>
       <div id="result"></div>
@@ -36,7 +125,7 @@
   </div>
 
   <script>
-    // Your new published sheet via opensheet
+    // Google Sheet JSON link via opensheet
     const sheetURL = "https://opensheet.elk.sh/1zfj3YYMccuEqQ3GJQKth-fQJ4ukZhlF0tzRNE3KsRzg/Sheet1";
 
     async function checkResult() {
